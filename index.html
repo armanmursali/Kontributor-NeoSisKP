@@ -4,10 +4,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PTI E</title>
+    <title>Kontributor NeoSISKP</title>
+    <link rel="icon" type="image/png" href="logo.png">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
     <style>
+        /* Lenis Smooth Scroll */
+        html.lenis,
+        html.lenis body {
+            height: auto;
+        }
+
+        .lenis.lenis-smooth {
+            scroll-behavior: auto !important;
+        }
+
+        .lenis.lenis-smooth [data-lenis-prevent] {
+            overscroll-behavior: contain;
+        }
+
+        .lenis.lenis-stopped {
+            overflow: hidden;
+        }
+
+        .lenis.lenis-smooth iframe {
+            pointer-events: none;
+        }
+
+        /* Image Blur Reveal & Overflow Clip */
+        .img-blur-loader {
+            filter: blur(12px);
+            opacity: 0;
+            transition: filter 0.7s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1), transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+            will-change: filter, opacity, transform;
+        }
+
+        .img-blur-loader.loaded {
+            filter: blur(0px);
+            opacity: 1;
+        }
+
         #starCanvas {
             position: fixed;
             top: 0;
@@ -69,16 +106,111 @@
             class="w-24 h-24 floating-planet">
     </div>
 
-    <nav class="fixed w-full z-50 px-8 py-6 flex justify-between items-center glass-card border-none bg-transparent">
-        <h1 class="text-2xl font-bold tracking-tighter text-blue-400">PTI E Akt 2023</h1>
-        <div class="space-x-8 hidden md:flex">
-            <a href="#dosen" class="hover:text-blue-400 transition">Dosen</a>
-            <a href="#divisi" class="hover:text-blue-400 transition">Divisi</a>
-            <a href="#testimoni" class="hover:text-blue-400 transition">Kesan Pesan</a>
+    <nav
+        class="fixed top-5 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-2rem)] md:w-[calc(100%-4rem)] max-w-[68rem] px-6 md:px-8 py-3.5 flex justify-between items-center glass-card rounded-full border border-white/10 bg-slate-950/40 backdrop-blur-md shadow-lg shadow-blue-500/5">
+        <!-- Left Side -->
+        <a href="#" class="flex items-center gap-3 shrink-0">
+            <img src="logo.png" alt="Logo NeoSISKP"
+                class="w-8 h-8 md:w-10 md:h-10 object-contain drop-shadow-[0_0_10px_rgba(59,130,246,0.5)]">
+            <h1
+                class="text-lg md:text-xl font-bold tracking-normal md:tracking-tighter bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">
+                Kontributor NeoSISKP</h1>
+        </a>
+
+        <!-- Center Menu  -->
+        <div
+            class="space-x-6 md:space-x-8 hidden lg:flex text-sm md:text-base font-medium absolute left-1/2 -translate-x-1/2">
+            <a href="/#"
+                class="nav-link relative py-1 text-gray-300 hover:text-white transition-colors duration-200 group">
+                Beranda
+                <span
+                    class="nav-underline absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r from-blue-400 to-purple-500 transition-all duration-300 ease-out group-hover:w-full"></span>
+            </a>
+            <a href="#dosen"
+                class="nav-link relative py-1 text-gray-300 hover:text-white transition-colors duration-200 group">
+                Advisor
+                <span
+                    class="nav-underline absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r from-blue-400 to-purple-500 transition-all duration-300 ease-out group-hover:w-full"></span>
+            </a>
+            <a href="#divisi"
+                class="nav-link relative py-1 text-gray-300 hover:text-white transition-colors duration-200 group">
+                Struktur Divisi
+                <span
+                    class="nav-underline absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r from-blue-400 to-purple-500 transition-all duration-300 ease-out group-hover:w-full"></span>
+            </a>
         </div>
+
+        <!-- Right Side  -->
+        <div class="hidden lg:flex items-center shrink-0 relative group">
+            <a href="https://github.com/armanmursali/Kontributor-NeoSisKP" target="_blank" rel="noopener noreferrer"
+                aria-label="Repositori Projek Kontributor NeoSISKP"
+                class="flex items-center justify-center w-10 h-10 text-gray-300 hover:text-white bg-transparent hover:bg-white/10 border border-transparent hover:border-white/5 rounded-xl transition-all duration-300 shadow-sm">
+                <svg class="w-5 h-5 md:w-6 md:h-6 fill-current" viewBox="0 0 24 24">
+                    <path
+                        d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+                </svg>
+            </a>
+
+            <!-- Tooltip -->
+            <div
+                class="absolute top-full right-0 mt-3 px-3 py-1.5 text-xs font-medium text-gray-200 bg-slate-950/90 border border-white/15 rounded-xl shadow-2xl backdrop-blur-xl whitespace-nowrap opacity-0 pointer-events-none group-hover:opacity-100 transition-all duration-300 transform translate-y-1 group-hover:translate-y-0 z-50">
+                Repositori Projek Kontributor NeoSISKP
+            </div>
+        </div>
+
+        <!-- Burger Menu Button (Mobile View) -->
+        <button id="mobileMenuBtn" aria-label="Toggle Menu"
+            class="lg:hidden text-gray-300 hover:text-white focus:outline-none p-2 rounded-xl border border-white/10 bg-white/5 transition-colors">
+            <svg id="burgerIcon" class="w-6 h-6 transition-transform duration-300" fill="none" stroke="currentColor"
+                viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16">
+                </path>
+            </svg>
+            <svg id="closeIcon" class="w-6 h-6 hidden transition-transform duration-300" fill="none"
+                stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+        </button>
     </nav>
 
-    <section class="min-h-screen flex flex-col justify-center items-center px-8 pt-32 pb-20 max-w-7xl mx-auto">
+    <!-- Mobile Menu Dropdown -->
+    <div id="mobileMenu"
+        class="fixed top-24 left-1/2 -translate-x-1/2 z-40 w-[calc(100%-2rem)] md:w-[calc(100%-4rem)] max-w-[68rem] glass-card rounded-2xl border border-white/10 bg-slate-950/90 backdrop-blur-xl p-5 hidden flex-col space-y-3 shadow-2xl transition-all duration-300 opacity-0 scale-95 origin-top lg:hidden">
+        <a href="/#"
+            class="mobile-nav-link text-base font-medium text-gray-300 hover:text-white py-2.5 px-4 rounded-xl hover:bg-white/5 transition-colors flex items-center justify-between">
+            <span>Beranda</span>
+        </a>
+        <a href="#dosen"
+            class="mobile-nav-link text-base font-medium text-gray-300 hover:text-white py-2.5 px-4 rounded-xl hover:bg-white/5 transition-colors flex items-center justify-between">
+            <span>Advisor</span>
+        </a>
+        <a href="#divisi"
+            class="mobile-nav-link text-base font-medium text-gray-300 hover:text-white py-2.5 px-4 rounded-xl hover:bg-white/5 transition-colors flex items-center justify-between">
+            <span>Struktur Divisi</span>
+        </a>
+        <a href="https://github.com/armanmursali/Kontributor-NeoSisKP" target="_blank" rel="noopener noreferrer"
+            class="text-base font-medium text-gray-300 hover:text-white bg-transparent hover:bg-white/10 border border-transparent hover:border-white/15 py-2.5 px-4 rounded-xl transition-colors flex items-center justify-between mt-2">
+            <span class="flex items-center gap-2">
+                <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                    <path
+                        d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+                </svg>
+                <span>Repository Projek Kontributor</span>
+            </span>
+            <!-- <span class="text-xs font-mono opacity-70">GitHub ↗</span> -->
+        </a>
+    </div>
+
+    <!-- Scroll To Top Button -->
+    <button id="scrollToTopBtn" aria-label="Ke Atas"
+        class="fixed bottom-8 right-8 z-50 w-12 h-12 rounded-full glass-card bg-slate-950/70 border border-white/15 text-white flex items-center justify-center shadow-2xl backdrop-blur-lg hover:bg-white/20 hover:border-white/30 transition-all duration-300 transform scale-95 opacity-0 pointer-events-none hover:scale-110 active:scale-90">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 15l7-7 7 7"></path>
+        </svg>
+    </button>
+
+    <section id="beranda"
+        class="min-h-screen flex flex-col justify-center items-center px-8 pt-32 pb-20 max-w-7xl mx-auto">
         <div class="flex flex-col md:flex-row items-center gap-12 w-full">
 
             <div class="reveal-card w-full md:w-1/2 flex justify-center relative">
@@ -86,19 +218,22 @@
                     class="floating-planet absolute -top-10 -right-5 w-16 opacity-50 z-10">
 
                 <img src="produk.png" alt="Showcase Neo SISKP"
-                    class="w-full h-auto max-w-lg object-contain drop-shadow-[0_20px_50px_rgba(59,130,246,0.3)] transform transition hover:scale-105 duration-700">
+                    class="w-full h-auto max-w-lg object-contain drop-shadow-[0_20px_50px_rgba(59,130,246,0.3)] transform transition hover:scale-110 scale-105 duration-700">
             </div>
 
             <div class="w-full md:w-1/2 text-center md:text-left flex flex-col items-center md:items-start">
-                <img src="logo.png" alt="Logo SISKP"
-                    class="hero-logo w-16 h-16 mb-6 object-contain drop-shadow-[0_0_15px_rgba(59,130,246,0.5)]">
+                <div class="hero-logo mb-6">
+                    <img src="logo.png" alt="Logo SISKP"
+                        class="w-20 h-20 object-contain drop-shadow-[0_0_15px_rgba(59,130,246,0.5)]">
+                </div>
 
                 <h2
                     class="hero-title text-4xl md:text-6xl font-black mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500 uppercase tracking-tighter">
-                    KONTRIBUTOR NEO SISKP
+                    KONTRIBUTOR NEOSISKP
                 </h2>
                 <p class="hero-subtitle text-gray-400 text-lg md:text-xl max-w-xl">
-                    Dokumentasi mahasiswa yang berkontribusi dalam pembuatan aplikasi neo siskp 2025, Jurusan Teknik
+                    Mahasiswa Informatika yang berkontribusi besar dalam pembuatan Website NeoSISKP Tahun 2025, Jurusan
+                    Teknik
                     Informatika, Universitas Negeri Gorontalo.
                 </p>
             </div>
@@ -109,7 +244,8 @@
     <section id="dosen" class="py-20 px-8 max-w-6xl mx-auto">
         <h3 class="section-title text-3xl font-bold mb-12 border-l-4 border-blue-500 pl-4">Dosen Pembimbing</h3>
         <div class="reveal-card glass-card p-8 md:p-12 rounded-3xl flex flex-col md:flex-row items-center gap-12">
-            <div class="w-full md:w-1/2 flex justify-center">
+            <div
+                class="w-full md:w-1/2 flex justify-center min-h-[250px] md:min-h-[350px] items-center overflow-hidden rounded-2xl relative bg-slate-950/20 animate-pulse">
                 <img src="all.png" alt="Dosen Pembimbing"
                     class="w-full h-auto max-h-[500px] object-contain drop-shadow-[0_20px_50px_rgba(59,130,246,0.3)] transform transition hover:scale-105 duration-500">
             </div>
@@ -128,20 +264,21 @@
         </div>
     </section>
 
-    <section id="divisi" class="py-20 px-8 max-w-6xl mx-auto">
-        <h3 class="section-title text-3xl font-bold mb-12 border-l-4 border-purple-500 pl-4">Struktur Divisi</h3>
+    <section id="divisi" class="py-20 px-8 max-w-6xl mx-auto mb-24">
+        <h3 class="section-title text-3xl font-bold mb-12 border-l-4 border-blue-500 pl-4">Struktur Divisi</h3>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
             <div class="reveal-card glass-card overflow-hidden rounded-xl hover:bg-white/5 transition duration-300">
-                <div class="w-full bg-black/20 p-4">
+                <div
+                    class="w-full bg-slate-950/40 p-4 min-h-[220px] sm:min-h-[260px] flex items-center justify-center overflow-hidden relative animate-pulse">
                     <img src="divisi1.png" alt="Divisi 1"
-                        class="w-full h-auto object-contain transition transform hover:scale-105">
+                        class="w-full h-auto max-h-[240px] object-contain transition transform hover:scale-105">
                 </div>
                 <div class="p-6">
                     <span class="text-blue-500 font-mono text-sm">DIVISI 01</span>
                     <h4 class="text-xl font-bold mb-2">System Analysis</h4>
                     <p class="text-gray-400 text-sm text-justify">
-                        Divisi System Analysis bertanggung jawab dalam menganalisis kebutuhan sistem NEOSIKP secara
+                        Divisi System Analysis bertanggung jawab dalam menganalisis kebutuhan sistem NeoSISKP secara
                         menyeluruh. Divisi ini melakukan penggalian kebutuhan pengguna (mahasiswa, dosen, dan admin),
                         menyusun dokumen kebutuhan sistem, serta merancang alur bisnis dan proses kerja sistem. Hasil
                         analisis menjadi dasar utama bagi divisi lain dalam proses desain, pengembangan, dan
@@ -151,16 +288,17 @@
             </div>
 
             <div class="reveal-card glass-card overflow-hidden rounded-xl hover:bg-white/5 transition duration-300">
-                <div class="w-full bg-black/20 p-4">
+                <div
+                    class="w-full bg-slate-950/40 p-4 min-h-[220px] sm:min-h-[260px] flex items-center justify-center overflow-hidden relative animate-pulse">
                     <img src="divisi2.png" alt="Divisi 2"
-                        class="w-full h-auto object-contain transition transform hover:scale-105">
+                        class="w-full h-auto max-h-[240px] object-contain transition transform hover:scale-105">
                 </div>
                 <div class="p-6">
                     <span class="text-blue-500 font-mono text-sm">DIVISI 02</span>
                     <h4 class="text-xl font-bold mb-2">Database Management</h4>
                     <p class="text-gray-400 text-sm text-justify">
                         Divisi Database Management berfokus pada perancangan, pengelolaan, dan optimasi basis data
-                        NEOSIKP. Divisi ini merancang struktur database, relasi antar tabel, serta memastikan keamanan,
+                        NeoSISKP. Divisi ini merancang struktur database, relasi antar tabel, serta memastikan keamanan,
                         konsistensi, dan integritas data skripsi dan kerja praktik. Selain itu, divisi ini juga
                         mendukung kebutuhan query dan integrasi data untuk mendukung performa sistem secara optimal.
                     </p>
@@ -168,15 +306,16 @@
             </div>
 
             <div class="reveal-card glass-card overflow-hidden rounded-xl hover:bg-white/5 transition duration-300">
-                <div class="w-full bg-black/20 p-4">
+                <div
+                    class="w-full bg-slate-950/40 p-4 min-h-[220px] sm:min-h-[260px] flex items-center justify-center overflow-hidden relative animate-pulse">
                     <img src="divisi3.png" alt="Divisi 3"
-                        class="w-full h-auto object-contain transition transform hover:scale-105">
+                        class="w-full h-auto max-h-[240px] object-contain transition transform hover:scale-105">
                 </div>
                 <div class="p-6">
                     <span class="text-blue-500 font-mono text-sm">DIVISI 03</span>
                     <h4 class="text-xl font-bold mb-2">UI/UX Design</h4>
                     <p class="text-gray-400 text-sm text-justify">
-                        Divisi UI/UX Design bertanggung jawab dalam merancang tampilan dan pengalaman pengguna NEOSIKP
+                        Divisi UI/UX Design bertanggung jawab dalam merancang tampilan dan pengalaman pengguna NeoSISKP
                         agar mudah digunakan, intuitif, dan efisien. Divisi ini menyusun user flow, wireframe, hingga
                         desain antarmuka menggunakan Figma, dengan mempertimbangkan kebutuhan pengguna dan hasil
                         analisis sistem. Tujuan utama divisi ini adalah menciptakan pengalaman pengguna yang nyaman dan
@@ -186,15 +325,16 @@
             </div>
 
             <div class="reveal-card glass-card overflow-hidden rounded-xl hover:bg-white/5 transition duration-300">
-                <div class="w-full bg-black/20 p-4">
+                <div
+                    class="w-full bg-slate-950/40 p-4 min-h-[220px] sm:min-h-[260px] flex items-center justify-center overflow-hidden relative animate-pulse">
                     <img src="divisi4.png" alt="Divisi 4"
-                        class="w-full h-auto object-contain transition transform hover:scale-105">
+                        class="w-full h-auto max-h-[240px] object-contain transition transform hover:scale-105">
                 </div>
                 <div class="p-6">
                     <span class="text-blue-500 font-mono text-sm">DIVISI 04</span>
                     <h4 class="text-xl font-bold mb-2">Software Development</h4>
                     <p class="text-gray-400 text-sm text-justify">
-                        Divisi Software Development bertugas mengimplementasikan sistem NEOSIKP berdasarkan hasil
+                        Divisi Software Development bertugas mengimplementasikan sistem NeoSISKP berdasarkan hasil
                         analisis dan desain yang telah dibuat. Divisi ini melakukan pengembangan fitur, integrasi
                         sistem, serta pengujian aplikasi agar berjalan sesuai kebutuhan. Selain itu, divisi ini juga
                         memastikan kualitas kode, keamanan sistem, dan kesiapan sistem untuk digunakan secara nyata.
@@ -204,10 +344,33 @@
         </div>
     </section>
 
-    <footer class="py-10 text-center text-gray-600 border-t border-white/5">
-        <p>
-            &copy; <span id="year"></span> PBF . Built with Tailwind &amp; Hearth
-        </p>
+    <footer
+        class="py-12 px-6 md:px-8 glass-card border-t border-white/10 bg-slate-950/40 backdrop-blur shadow-lg shadow-blue-500/5">
+        <div class="max-w-[68rem] mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+
+            <div class="flex flex-col items-start md:text-left max-w-xl space-y-1">
+                <a href="/#" class="flex items-center gap-3 mb-2 group">
+                    <img src="logo.png" alt="Logo NeoSISKP"
+                        class="w-8 h-8 md:w-10 md:h-10 object-contain drop-shadow-[0_0_10px_rgba(59,130,246,0.5)]">
+                    <span
+                        class="text-base md:text-xl font-bold tracking-tighter bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">Kontributor
+                        NeoSISKP</span>
+                </a>
+                <p class="text-xs md:text-sm text-gray-400 leading-relaxed">
+                    Mahasiswa Informatika yang berkontribusi besar dalam pembuatan Website NeoSISKP Tahun 2025, Jurusan
+                    Teknik Informatika, Universitas Negeri Gorontalo.
+                </p>
+            </div>
+ 
+            <div class="flex flex-col items-center md:items-end mx-auto md:mx-0 space-y-1">
+                <p class="text-xs md:text-sm text-gray-400 font-medium shrink-0 my-auto">
+                    &copy; <span id="year"></span> Kontributor NeoSISKP. All rights reserved.
+                </p>
+                <p class="text-xs text-gray-400 shrink-0 my-auto">
+                    Proudly presented with ❤️ by PTI B & PTI E
+                </p>
+            </div>
+        </div>
     </footer>
 
     <script>
@@ -224,11 +387,16 @@
         resize();
 
         class Star {
-            constructor() {
+            constructor() { this.reset(); }
+            reset() {
                 this.x = Math.random() * canvas.width;
                 this.y = Math.random() * canvas.height;
-                this.size = Math.random() * 2;
-                this.speed = Math.random() * 0.5;
+                this.size = Math.random() * 1.8 + 0.2;
+                this.baseAlpha = Math.random() * 0.7 + 0.3;
+                this.alpha = this.baseAlpha;
+                this.speed = Math.random() * 0.3 + 0.05;
+                this.twinkleSpeed = Math.random() * 0.02 + 0.005;
+                this.twinkleFactor = Math.random() * Math.PI * 2;
             }
             update() {
                 this.y += this.speed;
@@ -236,9 +404,13 @@
                     this.y = 0;
                     this.x = Math.random() * canvas.width;
                 }
+                this.twinkleFactor += this.twinkleSpeed;
+                this.alpha = this.baseAlpha + Math.sin(this.twinkleFactor) * 0.3;
+                if (this.alpha < 0.1) this.alpha = 0.1;
+                if (this.alpha > 1) this.alpha = 1;
             }
             draw() {
-                ctx.fillStyle = 'rgba(255, 255, 255, 0.8)';
+                ctx.fillStyle = `rgba(255, 255, 255, ${this.alpha})`;
                 ctx.beginPath();
                 ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
                 ctx.fill();
@@ -248,33 +420,55 @@
         class ShootingStar {
             constructor() { this.reset(); }
             reset() {
-                this.x = Math.random() * canvas.width;
-                this.y = 0;
-                this.length = Math.random() * 80 + 10;
-                this.speed = Math.random() * 10 + 5;
-                this.opacity = 1;
+                this.x = Math.random() * canvas.width * 1.2;
+                this.y = Math.random() * canvas.height * 0.4;
+                this.length = Math.random() * 80 + 30;
+                this.speed = Math.random() * 6 + 4;
+                this.size = Math.random() * 1.5 + 0.8;
+                this.alpha = 0;
+                this.active = false;
+                this.waitTime = Math.random() * 300 + 50;
             }
             update() {
+                if (!this.active) {
+                    this.waitTime--;
+                    if (this.waitTime <= 0) {
+                        this.active = true;
+                        this.alpha = 1;
+                    }
+                    return;
+                }
                 this.x -= this.speed;
-                this.y += this.speed;
-                this.opacity -= 0.01;
-                if (this.opacity <= 0 || this.x < 0 || this.y > canvas.height) this.reset();
+                this.y += this.speed * 0.6;
+                this.alpha -= 0.015;
+                if (this.alpha <= 0 || this.x < -100 || this.y > canvas.height + 100) {
+                    this.reset();
+                }
             }
             draw() {
-                ctx.strokeStyle = `rgba(255, 255, 255, ${this.opacity})`;
-                ctx.lineWidth = 2;
+                if (!this.active || this.alpha <= 0) return;
+                const gradient = ctx.createLinearGradient(
+                    this.x, this.y,
+                    this.x + this.length, this.y - this.length * 0.6
+                );
+                gradient.addColorStop(0, `rgba(255, 255, 255, ${this.alpha})`);
+                gradient.addColorStop(0.5, `rgba(96, 165, 250, ${this.alpha * 0.6})`);
+                gradient.addColorStop(1, 'rgba(147, 51, 234, 0)');
+
+                ctx.strokeStyle = gradient;
+                ctx.lineWidth = this.size;
                 ctx.beginPath();
                 ctx.moveTo(this.x, this.y);
-                ctx.lineTo(this.x + this.length, this.y - this.length);
+                ctx.lineTo(this.x + this.length, this.y - this.length * 0.6);
                 ctx.stroke();
             }
         }
 
         function initStars() {
             stars = [];
-            for (let i = 0; i < 150; i++) stars.push(new Star());
+            for (let i = 0; i < 180; i++) stars.push(new Star());
             shootingStars = [];
-            for (let i = 0; i < 3; i++) shootingStars.push(new ShootingStar());
+            for (let i = 0; i < 4; i++) shootingStars.push(new ShootingStar());
         }
 
         function animateStars() {
@@ -287,13 +481,178 @@
         initStars();
         animateStars();
 
-        ScrollReveal().reveal('.hero-logo', { delay: 300, distance: '30px', origin: 'top' });
-        ScrollReveal().reveal('.hero-title', { delay: 400, distance: '50px', origin: 'top' });
-        ScrollReveal().reveal('.hero-subtitle', { delay: 600, distance: '50px', origin: 'bottom' });
-        ScrollReveal().reveal('.section-title', { delay: 200, distance: '30px', origin: 'left' });
-        ScrollReveal().reveal('.reveal-card', { delay: 300, distance: '60px', origin: 'bottom', interval: 200 });
+        // ScrollReveal Animations (Duration 2 Seconds / 2000ms)
+        const sr = ScrollReveal({
+            duration: 2000,
+            easing: 'cubic-bezier(0.5, 0, 0, 1)',
+            reset: false
+        });
+
+        sr.reveal('.hero-logo', { delay: 200, distance: '30px', origin: 'top' });
+        sr.reveal('.hero-title', { delay: 400, distance: '50px', origin: 'top' });
+        sr.reveal('.hero-subtitle', { delay: 600, distance: '50px', origin: 'bottom' });
+        sr.reveal('.section-title', { delay: 200, distance: '30px', origin: 'left' });
+        sr.reveal('.reveal-card', { delay: 300, distance: '60px', origin: 'bottom', interval: 200 });
 
         document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const burgerIcon = document.getElementById('burgerIcon');
+        const closeIcon = document.getElementById('closeIcon');
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+        function toggleMobileMenu() {
+            const isHidden = mobileMenu.classList.contains('hidden');
+            if (isHidden) {
+                mobileMenu.classList.remove('hidden');
+                setTimeout(() => {
+                    mobileMenu.classList.remove('opacity-0', 'scale-95');
+                    mobileMenu.classList.add('opacity-100', 'scale-100');
+                }, 10);
+                burgerIcon.classList.add('hidden');
+                closeIcon.classList.remove('hidden');
+            } else {
+                mobileMenu.classList.remove('opacity-100', 'scale-100');
+                mobileMenu.classList.add('opacity-0', 'scale-95');
+                setTimeout(() => {
+                    mobileMenu.classList.add('hidden');
+                }, 300);
+                burgerIcon.classList.remove('hidden');
+                closeIcon.classList.add('hidden');
+            }
+        }
+
+        mobileMenuBtn.addEventListener('click', toggleMobileMenu);
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (!mobileMenu.classList.contains('hidden')) {
+                    toggleMobileMenu();
+                }
+            });
+        });
+
+        // Active Section Scroll Highlight
+        const sections = document.querySelectorAll('section[id]');
+        const desktopNavLinks = document.querySelectorAll('.nav-link');
+
+        function highlightNavOnScroll() {
+            const scrollY = window.pageYOffset;
+
+            sections.forEach(current => {
+                const sectionHeight = current.offsetHeight;
+                const sectionTop = current.offsetTop - 250;
+                const sectionId = current.getAttribute('id');
+
+                const isCurrent = scrollY > sectionTop && scrollY <= sectionTop + sectionHeight;
+
+                desktopNavLinks.forEach(link => {
+                    const underline = link.querySelector('.nav-underline');
+                    const href = link.getAttribute('href');
+                    if (href === '#' + sectionId || (sectionId === 'beranda' && (href === '/#' || href === '#'))) {
+                        if (isCurrent) {
+                            link.classList.add('text-white');
+                            link.classList.remove('text-gray-300');
+                            if (underline) underline.classList.add('!w-full');
+                        } else {
+                            link.classList.remove('text-white');
+                            link.classList.add('text-gray-300');
+                            if (underline) underline.classList.remove('!w-full');
+                        }
+                    }
+                });
+
+                mobileNavLinks.forEach(link => {
+                    const href = link.getAttribute('href');
+                    if (href === '#' + sectionId || (sectionId === 'beranda' && (href === '/#' || href === '#'))) {
+                        if (isCurrent) {
+                            link.classList.add('text-white', 'bg-white/10');
+                            link.classList.remove('text-gray-300');
+                        } else {
+                            link.classList.remove('text-white', 'bg-white/10');
+                            link.classList.add('text-gray-300');
+                        }
+                    }
+                });
+            });
+        }
+
+        // Initialize Lenis Smooth Scroll
+        const lenis = new Lenis({
+            duration: 1.2,
+            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+            smoothWheel: true,
+            touchMultiplier: 2,
+        });
+
+        function raf(time) {
+            lenis.raf(time);
+            requestAnimationFrame(raf);
+        }
+        requestAnimationFrame(raf);
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"], a[href^="/#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                let targetId = href.replace(/^\/#?/, '#');
+                if (targetId === '#' || targetId === '') targetId = '#beranda';
+                const targetEl = document.querySelector(targetId);
+                if (targetEl) {
+                    e.preventDefault();
+                    lenis.scrollTo(targetEl, { offset: -90 });
+                }
+            });
+        });
+
+        // Scroll To Top Button Logic
+        const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+
+        lenis.on('scroll', (e) => {
+            if (e.scroll > 300) {
+                scrollToTopBtn.classList.remove('opacity-0', 'pointer-events-none', 'scale-95');
+                scrollToTopBtn.classList.add('opacity-100', 'pointer-events-auto', 'scale-100');
+            } else {
+                scrollToTopBtn.classList.remove('opacity-100', 'pointer-events-auto', 'scale-100');
+                scrollToTopBtn.classList.add('opacity-0', 'pointer-events-none', 'scale-95');
+            }
+            highlightNavOnScroll();
+        });
+
+        scrollToTopBtn.addEventListener('click', () => {
+            lenis.scrollTo(0, { duration: 1.2 });
+        });
+
+        window.addEventListener('scroll', highlightNavOnScroll);
+        highlightNavOnScroll();
+
+        // Image Blur Reveal & Skeleton Loading Handler
+        document.querySelectorAll('img').forEach(img => {
+            if (img.closest('.hero-logo')) {
+                return; // Let ScrollReveal handle hero logo wrapper animation smoothly
+            }
+            img.classList.add('img-blur-loader');
+
+            function handleImgLoaded() {
+                img.classList.add('loaded');
+                if (img.parentElement) {
+                    img.parentElement.classList.remove('animate-pulse');
+                }
+            }
+
+            if (img.complete && img.naturalWidth !== 0) {
+                handleImgLoaded();
+            } else {
+                img.addEventListener('load', handleImgLoaded);
+                img.addEventListener('error', () => {
+                    img.classList.add('loaded');
+                    if (img.parentElement) {
+                        img.parentElement.classList.remove('animate-pulse');
+                    }
+                });
+            }
+        });
     </script>
 </body>
 
